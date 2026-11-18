@@ -1,0 +1,21 @@
+[Unit]
+Description=Brisa RSVP API
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=brisaapi
+Group=brisaapi
+WorkingDirectory=/opt/brisa-rsvp-api
+EnvironmentFile=/etc/brisa-rsvp-api.env
+ExecStart=/usr/bin/node src/server.js
+Restart=always
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+
+[Install]
+WantedBy=multi-user.target
