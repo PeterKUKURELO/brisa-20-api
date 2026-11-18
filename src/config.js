@@ -52,6 +52,7 @@ export const config = {
     user: required('DB_USER'),
     password: required('DB_PASSWORD'),
     useTls: boolean('DB_USE_TLS'),
+    tlsRejectUnauthorized: boolean('DB_TLS_REJECT_UNAUTHORIZED', true),
     sslCa: process.env.DB_SSL_CA?.replace(/\\n/g, '\n') || '',
     connectionLimit: integer('DB_CONNECTION_LIMIT', 3),
   },

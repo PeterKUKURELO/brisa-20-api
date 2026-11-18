@@ -52,6 +52,7 @@ DB_NAME=tu-base
 DB_USER=tu-usuario
 DB_PASSWORD=tu-contrasena
 DB_USE_TLS=true
+DB_TLS_REJECT_UNAUTHORIZED=true
 DB_CONNECTION_LIMIT=3
 DB_SSL_CA=
 
@@ -59,6 +60,8 @@ ADMIN_API_KEY=una-clave-aleatoria-de-al-menos-32-caracteres
 ```
 
 No agregues el prefijo `VITE_` a credenciales o claves privadas. Si tu proveedor entrega una CA propia, coloca su contenido en `DB_SSL_CA`, conservando los saltos como `\n`.
+
+Si una base de testing usa una cadena TLS autofirmada y no entrega su CA, puedes establecer temporalmente `DB_TLS_REJECT_UNAUTHORIZED=false`. La conexión seguirá cifrada, pero no verificará la identidad del certificado; para producción es preferible configurar `DB_SSL_CA` y mantener el valor en `true`.
 
 ## Despliegue en Vercel
 

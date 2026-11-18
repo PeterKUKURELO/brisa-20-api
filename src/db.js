@@ -3,7 +3,7 @@ import { config } from './config.js'
 
 const ssl = config.db.useTls
   ? {
-      rejectUnauthorized: true,
+      rejectUnauthorized: config.db.tlsRejectUnauthorized,
       ...(config.db.sslCa ? { ca: config.db.sslCa } : {}),
     }
   : undefined
